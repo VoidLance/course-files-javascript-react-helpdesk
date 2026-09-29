@@ -8,7 +8,7 @@ A small helpdesk dashboard built with React, TypeScript, and Bun. The app displa
 - Create tickets with a name, title, description, date, and status.
 - Select a ticket to view its details or delete it.
 - Run a Bun development server with hot module reloading.
-- Use the example `/api/hello` routes to experiment with `GET`, `PUT`, and path parameters.
+- Experiment with the example `GET`, `PUT`, and parameterized API routes.
 - Build an optimized browser bundle with Bun.
 
 Ticket data currently lives in React state, so changes are reset when the page is reloaded. The project does not yet include authentication, persistence, or a database.
@@ -34,12 +34,13 @@ Start the development server:
 bun run dev
 ```
 
-Open the URL printed by Bun, then use **Create Ticket** to add a ticket. Select any ticket title to view its details.
+Open the URL printed by Bun, then use **Create Ticket** to add a ticket. Select any ticket title to view its details. Changes to files in `src/` are reflected automatically through hot module reloading.
 
 ## Available commands
 
 | Command | Purpose |
 | --- | --- |
+| `bun install` | Install dependencies from `bun.lock`. |
 | `bun run dev` | Start the development server with hot module reloading. |
 | `bun run build` | Create a minified browser bundle in `dist/`. |
 | `bun run start` | Start the server with `NODE_ENV=production`. |
@@ -77,7 +78,7 @@ src/
 
 ## Support
 
-For questions or bug reports, [open an issue](https://github.com/VoidLance/course-files-javascript-react-helpdesk/issues) with steps to reproduce the problem and relevant browser or terminal output. Review existing issues before opening a new one.
+For questions or bug reports, [open an issue](https://github.com/VoidLance/course-files-javascript-react-helpdesk/issues) with steps to reproduce the problem and relevant browser or terminal output. Review existing issues before opening a new one. For framework and runtime documentation, see the [React documentation](https://react.dev/learn) and [Bun documentation](https://bun.com/docs).
 
 ## Maintainers and contributing
 
