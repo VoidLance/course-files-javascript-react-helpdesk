@@ -1,86 +1,95 @@
-# Helpdesk Ticket Board
+# JavaScript React Helpdesk
 
-A small helpdesk dashboard built with React 19 and Bun. It organizes support tickets by status and lets users create tickets, inspect their details, and delete tickets from the board.
+A small helpdesk dashboard built with React, TypeScript, and Bun. The app displays tickets grouped by status and lets users create, inspect, and delete tickets in the browser. It also includes a lightweight Bun server with example API routes for testing frontend-to-backend requests.
 
 ## Features
 
 - View tickets grouped into **Completed**, **In Progress**, and **Failed** columns.
 - Create tickets with a name, title, description, date, and status.
-- Select a ticket to view its details.
-- Delete tickets from the detail view.
-- Run a lightweight Bun server with hot module reloading during development.
-- Includes example JSON API routes for testing:
-  - `GET /api/hello`
-  - `PUT /api/hello`
-  - `GET /api/hello/:name`
+- Select a ticket to view its details or delete it.
+- Run a Bun development server with hot module reloading.
+- Experiment with the example `GET`, `PUT`, and parameterized API routes.
+- Build an optimized browser bundle with Bun.
 
-Ticket data is currently held in React component state, so it resets when the page is refreshed. There is no database or authentication layer.
+Ticket data currently lives in React state, so changes are reset when the page is reloaded. The project does not yet include authentication, persistence, or a database.
 
-## Prerequisites
+## Requirements
 
-- [Bun](https://bun.com) 1.3 or later
-- Git
+- [Bun](https://bun.com) 1.3 or newer
+- A modern browser
 
 ## Getting started
 
-Clone the repository, install dependencies, and start the development server:
+Clone the repository and install its dependencies:
 
 ```bash
 git clone https://github.com/VoidLance/course-files-javascript-react-helpdesk.git
 cd course-files-javascript-react-helpdesk
 bun install
-bun dev
 ```
 
-Open the URL printed by Bun, typically `http://localhost:3000`, in a browser. Changes to files in `src/` are reflected automatically through hot module reloading.
+Start the development server:
+
+```bash
+bun run dev
+```
+
+Open the URL printed by Bun, then use **Create Ticket** to add a ticket. Select any ticket title to view its details. Changes to files in `src/` are reflected automatically through hot module reloading.
 
 ## Available commands
 
-| Command | Description |
+| Command | Purpose |
 | --- | --- |
 | `bun install` | Install dependencies from `bun.lock`. |
-| `bun dev` | Start the development server with hot reloading. |
-| `bun run build` | Create a minified browser build in `dist/`. |
-| `bun start` | Start the Bun server with `NODE_ENV=production`. |
+| `bun run dev` | Start the development server with hot module reloading. |
+| `bun run build` | Create a minified browser bundle in `dist/`. |
+| `bun run start` | Start the server with `NODE_ENV=production`. |
 
-To verify the example API routes while the server is running:
+## Example API requests
+
+The Bun server exposes these example endpoints while it is running:
 
 ```bash
+# Basic greeting
 curl http://localhost:3000/api/hello
-curl http://localhost:3000/api/hello/Ada
+
+# PUT requests are supported too
 curl -X PUT http://localhost:3000/api/hello
+
+# Include a name in the greeting
+curl http://localhost:3000/api/hello/Ada
 ```
+
+The response is JSON. The server port is selected by Bun and is shown in the terminal when the server starts; update the examples if your local URL uses a different port.
 
 ## Project structure
 
 ```text
 src/
-├── App.tsx                  # Ticket state and main dashboard UI
+├── App.tsx                  # Ticket state and main dashboard
 ├── components/
-│   ├── StatusBoard.tsx      # Status columns
-│   ├── TicketInfo.tsx       # Ticket status card wrapper
-│   └── APITester.tsx        # Reusable API request tester
+│   ├── APITester.tsx        # Small UI for trying API endpoints
+│   ├── StatusBoard.tsx      # Ticket status columns
+│   └── TicketInfo.tsx       # Ticket status presentation
 ├── frontend.tsx             # React entry point
-├── index.html               # HTML shell
-├── index.ts                 # Bun server and API routes
-└── index.css                # Application styles
+├── index.css                # Application styles
+└── index.ts                 # Bun server and API routes
 ```
 
 ## Support
 
-For bugs or feature requests, [open an issue](https://github.com/VoidLance/course-files-javascript-react-helpdesk/issues). For framework and runtime documentation, see the [React documentation](https://react.dev/learn) and [Bun documentation](https://bun.com/docs).
+For questions or bug reports, [open an issue](https://github.com/VoidLance/course-files-javascript-react-helpdesk/issues) with steps to reproduce the problem and relevant browser or terminal output. Review existing issues before opening a new one. For framework and runtime documentation, see the [React documentation](https://react.dev/learn) and [Bun documentation](https://bun.com/docs).
 
-## Contributing
+## Maintainers and contributing
 
-Contributions are welcome. Before opening a pull request:
+This project is maintained by [VoidLance](https://github.com/VoidLance). Contributions are welcome:
 
-1. Create a focused branch for your change.
-2. Run `bun install` and `bun run build`.
-3. Test the affected ticket flows and API routes locally.
-4. Describe the change and validation steps in your pull request.
+1. Fork the repository and create a focused branch.
+2. Make the change and verify it with `bun run build`.
+3. Open a pull request describing the problem, solution, and verification performed.
 
-Please keep changes focused and update this README when setup or user-facing behavior changes.
+Keep changes focused, preserve the existing Bun/React setup, and update this README when user-facing commands or behavior change.
 
-## Maintainer
+## License
 
-This project is maintained by [VoidLance](https://github.com/VoidLance) and its contributors.
+No license file is currently included in the repository. Contact the maintainer before redistributing the project.
